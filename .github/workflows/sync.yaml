@@ -1,0 +1,11 @@
+name: Sync repository
+on: workflow_dispatch
+
+jobs:
+  sync:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh repo sync air-up-gmbh/odoo-cloud-platform-test -b 16.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
